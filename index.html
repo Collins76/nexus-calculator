@@ -445,7 +445,7 @@
                     <div class="ai-message ai-bot">
                         <div class="ai-avatar">AI</div>
                         <div class="ai-bubble">
-                            <p>Hello! I can help with:</p>
+                            <p>Hi! I'm the <strong>Nexus AI Assistant</strong>, crafted by <em>Collins Tochukwu Anyanwu</em>. I can help with:</p>
                             <ul>
                                 <li>🧮 Natural language math: <em>"what is 15% of 200"</em></li>
                                 <li>💱 Conversions: <em>"convert 100 dollars to euros"</em></li>
@@ -654,6 +654,58 @@
                     </select>
                 </div>
                 <button class="btn-danger" id="resetAllBtn">Reset All Data</button>
+
+                <!-- About Developer Section -->
+                <div class="about-section">
+                    <h4 class="about-title">About the Developer</h4>
+                    <div class="developer-card">
+                        <div class="developer-avatar">
+                            <svg viewBox="0 0 80 80" width="64" height="64">
+                                <defs>
+                                    <linearGradient id="devGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="var(--accent-primary)"/>
+                                        <stop offset="100%" stop-color="var(--accent-secondary)"/>
+                                    </linearGradient>
+                                </defs>
+                                <circle cx="40" cy="40" r="38" fill="url(#devGrad)" class="dev-avatar-bg"/>
+                                <text x="40" y="52" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="28" font-weight="700">CA</text>
+                            </svg>
+                        </div>
+                        <div class="developer-info">
+                            <div class="developer-name">Collins Tochukwu Anyanwu</div>
+                            <div class="developer-title">
+                                <span class="title-badge">Tech Guru</span>
+                                <span class="title-badge ai-badge">AI Enthusiast</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="developer-bio">
+                        Collins Tochukwu Anyanwu is a seasoned <strong>tech guru</strong> and passionate <strong>AI enthusiast</strong> with a deep love for building intelligent, user-centric applications. With broad experience across web development, mobile engineering, and cutting-edge AI integration, Collins blends technical mastery with creative vision to craft tools that make technology feel effortless.
+                    </p>
+                    <p class="developer-bio">
+                        When he's not architecting software, he's exploring the frontier of machine learning, experimenting with generative AI, and sharing knowledge with the developer community. <em>Nexus Calculator</em> is a reflection of his commitment to marrying practical utility with modern, intuitive design.
+                    </p>
+                    <div class="developer-links">
+                        <a href="https://github.com/Collins76" target="_blank" rel="noopener" class="dev-link">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57L9 21.07c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.08 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.7.82.58A12 12 0 0 0 12 .3"/>
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="mailto:polosoft.collins@gmail.com" class="dev-link">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            Email
+                        </a>
+                    </div>
+                    <div class="app-version">
+                        <span>Nexus Calculator v1.0.0</span>
+                        <span class="version-dot">•</span>
+                        <span>© 2026 Collins Tochukwu Anyanwu</span>
+                    </div>
+                </div>
             </div>
         </aside>
 
@@ -677,6 +729,15 @@
 
         <!-- Toast Container -->
         <div class="toast-container" id="toastContainer"></div>
+
+        <!-- Developer Credit Footer -->
+        <footer class="app-footer">
+            <span class="footer-heart">❤</span>
+            Crafted by
+            <button class="footer-credit" id="openAboutBtn">Collins Tochukwu Anyanwu</button>
+            <span class="footer-dot">•</span>
+            <span class="footer-role">Tech Guru & AI Enthusiast</span>
+        </footer>
     </div>
 
     <script src="app.js"></script>

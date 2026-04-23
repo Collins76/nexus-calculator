@@ -2012,6 +2012,19 @@ function init() {
         }
     });
 
+    // Open About section from footer
+    const openAboutBtn = document.getElementById('openAboutBtn');
+    if (openAboutBtn) {
+        openAboutBtn.addEventListener('click', () => {
+            document.getElementById('settingsPanel').classList.add('open');
+            document.getElementById('themePanel').classList.remove('open');
+            setTimeout(() => {
+                const aboutSection = document.querySelector('.about-section');
+                if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 350);
+        });
+    }
+
     // Close panels on outside click
     document.addEventListener('click', (e) => {
         const themePanel = document.getElementById('themePanel');
