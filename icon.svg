@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="100%" stop-color="#1a1f38"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="56" y="56" width="400" height="400" rx="72" fill="url(#inner)"/>
+  <text x="256" y="340" text-anchor="middle" fill="white" font-family="'JetBrains Mono', monospace" font-size="240" font-weight="700" filter="url(#glow)">∑</text>
+  <circle cx="140" cy="140" r="12" fill="#6366f1" opacity="0.8"/>
+  <circle cx="372" cy="140" r="12" fill="#ec4899" opacity="0.8"/>
+  <circle cx="140" cy="372" r="12" fill="#8b5cf6" opacity="0.8"/>
+  <circle cx="372" cy="372" r="12" fill="#06b6d4" opacity="0.8"/>
+</svg>

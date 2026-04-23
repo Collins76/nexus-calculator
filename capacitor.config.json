@@ -1,0 +1,13 @@
+{
+  "appId": "com.polosoft.nexuscalculator",
+  "appName": "Nexus Calculator",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "allowMixedContent": false,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}

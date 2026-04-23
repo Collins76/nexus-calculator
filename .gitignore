@@ -35,3 +35,14 @@ Thumbs.db
 
 # Claude Code
 .claude/
+
+# Capacitor build artifacts
+www/
+android/
+ios/
+
+# Keystore files — NEVER commit these
+*.keystore
+*.jks
+keystore.properties
+node_modules/
