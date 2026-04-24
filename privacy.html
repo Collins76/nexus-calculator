@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Nexus Calculator</title>
+    <meta name="description" content="Privacy Policy for Nexus Calculator - Smart AI Calculator by Collins Tochukwu Anyanwu">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0e1a;
+            --bg-card: #12172a;
+            --bg-elevated: #1a1f38;
+            --text: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent: #6366f1;
+            --accent-2: #ec4899;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent);
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--accent-2);
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1.page-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .updated {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .tldr {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .tldr h2 {
+            color: var(--accent);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        p {
+            margin-bottom: 14px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        ul li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .contact-box {
+            background: var(--bg-elevated);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .footer .developer {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 14px; }
+            .card { padding: 20px; }
+            .tldr { padding: 18px; }
+            h1.page-title { font-size: 26px; }
+            h2 { font-size: 19px; }
+            .logo-icon { width: 48px; height: 48px; font-size: 22px; }
+            .logo-text h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <div class="container">
+        <div class="header">
+            <a href="/" class="logo">
+                <div class="logo-icon">∑</div>
+                <div class="logo-text">
+                    <h1>Nexus</h1>
+                    <span>Smart Calculator</span>
+                </div>
+            </a>
+            <h1 class="page-title">Privacy Policy</h1>
+            <div class="updated">Last updated: April 24, 2026</div>
+        </div>
+
+        <div class="tldr">
+            <h2>🔒 TL;DR</h2>
+            <p style="margin: 0;">Nexus Calculator does <strong>NOT</strong> collect, store, or transmit any personal information to our servers. Everything runs entirely on your device. Zero tracking, zero analytics, zero accounts required.</p>
+        </div>
+
+        <div class="card">
+            <h2>Data We Do NOT Collect</h2>
+            <ul>
+                <li>Your name, email, phone number, or any contact information</li>
+                <li>Your calculations, conversions, or history</li>
+                <li>Your location</li>
+                <li>Your device identifiers for tracking purposes</li>
+                <li>Any personally identifiable information (PII)</li>
+                <li>Your voice data (voice recognition is processed on-device)</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Data Stored Locally on Your Device</h2>
+            <p>The app uses your device's <strong>localStorage</strong> to save:</p>
+            <ul>
+                <li>App settings (theme, sound, haptic, decimal places, voice language)</li>
+                <li>Calculation history (last 100 calculations)</li>
+                <li>Currency conversion presets</li>
+                <li>Metric conversion presets</li>
+            </ul>
+            <p><strong>This data never leaves your device.</strong> You can clear it at any time via the <strong>Settings → Reset All Data</strong> button inside the app, or by uninstalling the app.</p>
+        </div>
+
+        <div class="card">
+            <h2>Third-Party Services</h2>
+
+            <h3>🌍 Live Exchange Rates (Optional)</h3>
+            <p>When you enable "Live Exchange Rates" in settings, the app fetches data anonymously from <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener">open.er-api.com</a>. The request contains no personal data — only a simple HTTPS GET for current rates. Disabling live rates disables this network request entirely.</p>
+
+            <h3>🎤 Voice Recognition</h3>
+            <p>Voice commands use your device's built-in Speech Recognition API (provided by Google on Android, Apple on iOS, Microsoft on Windows). Audio is processed by your device's operating system, not by us. We never receive, store, or listen to your voice.</p>
+
+            <h3>📱 Google Play Services</h3>
+            <p>If you installed the app via the Google Play Store, Google Play Services may collect standard diagnostic information per Google's privacy policy.</p>
+
+            <h3>📢 Google AdMob (Future Versions)</h3>
+            <p>If a future version of this app includes advertisements via Google AdMob, Google may collect your advertising ID and non-personal usage data to serve relevant ads. You can reset or opt out of personalized ads in your device settings (Settings → Google → Ads on Android).</p>
+        </div>
+
+        <div class="card">
+            <h2>Security</h2>
+            <ul>
+                <li>All network requests use <strong>HTTPS</strong> (encrypted in transit)</li>
+                <li>No authentication or login is required</li>
+                <li>No personal data is ever transmitted</li>
+                <li>App is distributed through official channels only</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Your Rights</h2>
+            <p>Because we do not collect your data, there is no personal data for us to access, delete, or transfer. To remove any locally-stored data:</p>
+            <ul>
+                <li>Use the <strong>Reset All Data</strong> button in the app's Settings panel, OR</li>
+                <li>Uninstall the app — all locally stored data is automatically deleted</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Children's Privacy</h2>
+            <p>Nexus Calculator is rated <strong>Everyone</strong> and is safe for all ages. We do not knowingly collect data from children under 13. Since we don't collect any data from anyone, this is true for all users regardless of age.</p>
+        </div>
+
+        <div class="card">
+            <h2>Changes to This Policy</h2>
+            <p>We may update this policy from time to time. Significant changes will be noted in the app's update release notes. The "Last updated" date at the top of this page will always reflect the most recent version.</p>
+        </div>
+
+        <div class="card">
+            <h2>Contact Us</h2>
+            <p>For questions about this privacy policy or the app, contact the developer:</p>
+            <div class="contact-box">
+                <p style="margin: 0;"><strong>Collins Tochukwu Anyanwu</strong><br>
+                Email: <a href="mailto:polosoft.collins@gmail.com">polosoft.collins@gmail.com</a><br>
+                GitHub: <a href="https://github.com/Collins76" target="_blank" rel="noopener">github.com/Collins76</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>App Package:</strong> com.polosoft.nexuscalculator</p>
+            <p style="margin-top: 8px;">Crafted with ❤ by <span class="developer">Collins Tochukwu Anyanwu</span> — Tech Guru &amp; AI Enthusiast</p>
+            <p style="margin-top: 4px;">© 2026 Collins Tochukwu Anyanwu. All rights reserved.</p>
+            <a href="/" class="back-link">← Back to App</a>
+        </div>
+    </div>
+</body>
+</html>
