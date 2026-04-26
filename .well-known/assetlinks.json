@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.polosoft.nexuscalculator",
+        "sha256_cert_fingerprints": ["50:BA:E8:98:02:30:DE:56:57:E1:41:DC:D5:A1:EB:DF:49:B8:04:F0:1B:BE:28:CA:3B:5E:AF:D6:EB:03:1B:84"]
+      }
+    }]
