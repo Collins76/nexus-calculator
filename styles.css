@@ -391,39 +391,70 @@ button, input, select {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(90deg, transparent 0, #000 16px, #000 calc(100% - 16px), transparent 100%);
 }
 
+.mode-tabs::-webkit-scrollbar { display: none; }
+
 .mode-tab {
-    flex: 1;
+    flex: 0 0 auto;
+    min-width: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 14px 20px;
+    padding: 12px 18px;
     background: var(--bg-tertiary);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     color: var(--text-primary);
     font-family: var(--font-sans);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     transition: all var(--transition-fast);
     position: relative;
-    overflow: hidden;
-    min-width: 0;
+    overflow: visible;
     white-space: nowrap;
+    scroll-snap-align: start;
 }
 
 .mode-tab svg {
-    transition: transform var(--transition-base);
+    width: 20px;
+    height: 20px;
     stroke: currentColor;
     stroke-width: 2.2;
     flex-shrink: 0;
-    opacity: 0.95;
+    opacity: 1;
+    filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.25));
+    animation: iconFloat 3.6s ease-in-out infinite;
+    transform-origin: center;
+    transition: filter var(--transition-base), color var(--transition-base);
+}
+
+/* Staggered breathing so the row looks alive but not chaotic */
+.mode-tab:nth-child(1) svg { animation-delay: 0s; }
+.mode-tab:nth-child(2) svg { animation-delay: 0.35s; }
+.mode-tab:nth-child(3) svg { animation-delay: 0.7s; }
+.mode-tab:nth-child(4) svg { animation-delay: 1.05s; }
+.mode-tab:nth-child(5) svg { animation-delay: 1.4s; }
+.mode-tab:nth-child(6) svg { animation-delay: 1.75s; }
+.mode-tab:nth-child(7) svg { animation-delay: 2.1s; }
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
+    25% { transform: translateY(-1.5px) scale(1.06) rotate(-3deg); }
+    50% { transform: translateY(0) scale(1.1) rotate(0deg); }
+    75% { transform: translateY(-1px) scale(1.06) rotate(3deg); }
 }
 
 .mode-tab span {
@@ -434,27 +465,34 @@ button, input, select {
 .mode-tab:hover {
     color: var(--text-primary);
     background: var(--bg-elevated);
-    border-color: var(--border-hover);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.18);
 }
 
 .mode-tab:hover svg {
-    transform: scale(1.15) rotate(5deg);
+    animation-duration: 1.2s;
+    filter: drop-shadow(0 0 8px var(--accent-primary));
 }
 
 .mode-tab.active {
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
     color: white;
     border-color: transparent;
-    box-shadow: var(--shadow-glow);
+    box-shadow: var(--shadow-glow), 0 0 24px rgba(99, 102, 241, 0.45);
 }
 
 .mode-tab.active svg {
     opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+    animation: iconPulseActive 2s ease-in-out infinite;
 }
 
-.mode-tab.active svg {
-    animation: iconBounce 0.6s ease;
+@keyframes iconPulseActive {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.15) rotate(-6deg); }
+    50% { transform: scale(1.08) rotate(0deg); }
+    75% { transform: scale(1.18) rotate(6deg); }
 }
 
 @keyframes iconBounce {
@@ -2947,10 +2985,6 @@ button, input, select {
 
 /* ===== NEW CALCULATOR MODULES (Ovulation / Loan / Tax) ===== */
 
-.mode-tabs {
-    flex-wrap: wrap;
-}
-
 .module-pill {
     padding: 4px 10px;
     background: var(--bg-tertiary);
@@ -3497,8 +3531,9 @@ select.form-input {
     .mode-tab {
         padding: 10px 14px;
         font-size: 13px;
+        min-width: 110px;
     }
-    .mode-tab svg { width: 16px; height: 16px; }
+    .mode-tab svg { width: 18px; height: 18px; }
     .form-grid { grid-template-columns: 1fr; }
     .bracket-row { grid-template-columns: 1fr 1fr 80px 30px; gap: 6px; }
     .form-actions button { min-width: auto; }
