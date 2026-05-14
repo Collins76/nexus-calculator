@@ -434,17 +434,144 @@ button, input, select {
     overflow: visible;
 }
 
-.mode-tab svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-    stroke-width: 2.2;
+.mode-tab svg.tab-icon {
+    width: 22px;
+    height: 22px;
     flex-shrink: 0;
     opacity: 1;
-    filter: drop-shadow(0 0 4px rgba(99, 102, 241, 0.25));
+    overflow: visible;
+    filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.35));
     animation: iconFloat 3.6s ease-in-out infinite;
     transform-origin: center;
     transition: filter var(--transition-base), color var(--transition-base);
+}
+
+/* Force AI Assistant tab wide enough to never clip "AI Assistant" */
+.mode-tab[data-mode="ai"] { min-width: 175px; }
+.mode-tab[data-mode="calculator"] { min-width: 155px; }
+.mode-tab[data-mode="currency"] { min-width: 145px; }
+.mode-tab[data-mode="ovulation"] { min-width: 150px; }
+.mode-tab[data-mode="metric"] { min-width: 125px; }
+.mode-tab[data-mode="loan"] { min-width: 115px; }
+.mode-tab[data-mode="tax"] { min-width: 105px; }
+
+/* === Per-icon inner animations === */
+
+/* Calculator: keys light up in sequence */
+.mode-tab[data-mode="calculator"] .tab-icon-key { animation: keyBlink 2.4s ease-in-out infinite; transform-origin: center; }
+.mode-tab[data-mode="calculator"] .k1 { animation-delay: 0s; }
+.mode-tab[data-mode="calculator"] .k2 { animation-delay: 0.2s; }
+.mode-tab[data-mode="calculator"] .k3 { animation-delay: 0.4s; }
+.mode-tab[data-mode="calculator"] .k4 { animation-delay: 0.6s; }
+.mode-tab[data-mode="calculator"] .k5 { animation-delay: 0.8s; }
+.mode-tab[data-mode="calculator"] .k6 { animation-delay: 1.0s; }
+.mode-tab[data-mode="calculator"] .tab-icon-screen { animation: screenGlow 3s ease-in-out infinite; }
+
+@keyframes keyBlink {
+    0%, 70%, 100% { opacity: 0.55; transform: scale(1); }
+    35% { opacity: 1; transform: scale(1.25); }
+}
+@keyframes screenGlow {
+    0%, 100% { fill-opacity: 0.35; }
+    50% { fill-opacity: 0.7; }
+}
+
+/* Currency: ring rotates, symbol bobs */
+.mode-tab[data-mode="currency"] .tab-icon-ring { animation: ringSpin 6s linear infinite; transform-origin: 12px 12px; }
+.mode-tab[data-mode="currency"] .tab-icon-symbol { animation: symbolBob 2.4s ease-in-out infinite; transform-origin: 12px 12px; }
+
+@keyframes ringSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes symbolBob {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Metric: center spark pulses, edges shimmer */
+.mode-tab[data-mode="metric"] .tab-icon-spark { animation: sparkPulse 1.8s ease-in-out infinite; transform-origin: 12px 12px; }
+.mode-tab[data-mode="metric"] .tab-icon-edge { animation: edgeShimmer 3s ease-in-out infinite; }
+
+@keyframes sparkPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.6); opacity: 1; }
+}
+@keyframes edgeShimmer {
+    0%, 100% { opacity: 0.85; }
+    50% { opacity: 1; }
+}
+
+/* AI Assistant: core pulses, sparks orbit, dashed ring rotates */
+.mode-tab[data-mode="ai"] .tab-icon-core { animation: aiCorePulse 2s ease-in-out infinite; transform-origin: 12px 12px; }
+.mode-tab[data-mode="ai"] .tab-icon-glow { animation: aiGlowPulse 2.4s ease-in-out infinite; transform-origin: 12px 12px; }
+.mode-tab[data-mode="ai"] .tab-icon-orbit { animation: ringSpin 4s linear infinite; transform-origin: 12px 12px; }
+.mode-tab[data-mode="ai"] .tab-icon-spark { animation: sparkTwinkle 1.6s ease-in-out infinite; transform-origin: center; }
+.mode-tab[data-mode="ai"] .spark-a { animation-delay: 0s; }
+.mode-tab[data-mode="ai"] .spark-b { animation-delay: 0.4s; }
+.mode-tab[data-mode="ai"] .spark-c { animation-delay: 0.8s; }
+.mode-tab[data-mode="ai"] .spark-d { animation-delay: 1.2s; }
+
+@keyframes aiCorePulse {
+    0%, 100% { transform: scale(1); fill-opacity: 0.7; }
+    50% { transform: scale(1.18); fill-opacity: 1; }
+}
+@keyframes aiGlowPulse {
+    0%, 100% { fill-opacity: 0.08; transform: scale(1); }
+    50% { fill-opacity: 0.2; transform: scale(1.08); }
+}
+@keyframes sparkTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.6); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Ovulation: heart breathes, ECG pulse line wave */
+.mode-tab[data-mode="ovulation"] .tab-icon-body { animation: heartBeat 1.4s ease-in-out infinite; transform-origin: 12px 14px; }
+.mode-tab[data-mode="ovulation"] .tab-icon-pulse { animation: ecgFlow 2.4s ease-in-out infinite; stroke-dasharray: 30; }
+
+@keyframes heartBeat {
+    0%, 50%, 100% { transform: scale(1); }
+    20% { transform: scale(1.18); }
+    35% { transform: scale(1.08); }
+}
+@keyframes ecgFlow {
+    0% { stroke-dashoffset: 30; opacity: 0.4; }
+    40% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: -30; opacity: 0.4; }
+}
+
+/* Loan: coin spins (Y rotate), arrow bobs */
+.mode-tab[data-mode="loan"] .tab-icon-coin { animation: coinFlip 3s ease-in-out infinite; transform-origin: 12px 12.5px; }
+.mode-tab[data-mode="loan"] .tab-icon-arrow { animation: arrowBob 1.8s ease-in-out infinite; transform-origin: center; }
+.mode-tab[data-mode="loan"] .tab-icon-edge { animation: edgeShimmer 3s ease-in-out infinite; }
+
+@keyframes coinFlip {
+    0%, 100% { transform: scaleX(1); fill-opacity: 0.55; }
+    50% { transform: scaleX(0.3); fill-opacity: 0.85; }
+}
+@keyframes arrowBob {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-1.5px); opacity: 1; }
+}
+
+/* Tax: percent slash sweeps in, dots blink */
+.mode-tab[data-mode="tax"] .tab-icon-slash { animation: slashDraw 2s ease-in-out infinite; stroke-dasharray: 12; }
+.mode-tab[data-mode="tax"] .dot-a { animation: dotBlink 1.6s ease-in-out infinite; transform-origin: 9.5px 14.5px; }
+.mode-tab[data-mode="tax"] .dot-b { animation: dotBlink 1.6s ease-in-out infinite 0.8s; transform-origin: 14.5px 18px; }
+.mode-tab[data-mode="tax"] .tab-icon-fold { animation: foldFade 3s ease-in-out infinite; }
+
+@keyframes slashDraw {
+    0% { stroke-dashoffset: 12; opacity: 0.4; }
+    50% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: -12; opacity: 0.4; }
+}
+@keyframes dotBlink {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50% { transform: scale(1.4); opacity: 1; }
+}
+@keyframes foldFade {
+    0%, 100% { fill-opacity: 0.35; }
+    50% { fill-opacity: 0.6; }
 }
 
 /* Staggered breathing so the row looks alive but not chaotic */
