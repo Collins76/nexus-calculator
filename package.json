@@ -1,7 +1,7 @@
 {
   "name": "nexus-calculator",
-  "version": "1.0.0",
-  "description": "Smart AI-powered calculator with currency & metric converters, voice commands, and 10 themes",
+  "version": "2.0.0",
+  "description": "Smart AI-powered all-in-one calculator with currency, metric, ovulation, loan, and tax modules, voice commands, and 10 themes",
   "author": "Collins Anyanwu",
   "license": "MIT",
   "scripts": {
