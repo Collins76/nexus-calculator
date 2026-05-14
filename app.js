@@ -21,7 +21,7 @@ const state = {
         sound: true,
         haptic: true,
         animations: true,
-        liveRates: false,
+        liveRates: true,
         decimalPlaces: 4,
         voiceLang: 'en-US',
         theme: 'dark'
@@ -3381,6 +3381,8 @@ function animateButton(selector) {
 }
 
 // ===== INITIALIZATION =====
+const SETTINGS_VERSION = 2;
+
 function init() {
     // Load saved state
     state.calculator.history = Storage.load('history', []);
@@ -3390,7 +3392,23 @@ function init() {
     state.loan.presets = Storage.load('loanPresets', []);
     state.tax.presets = Storage.load('taxPresets', []);
     const savedSettings = Storage.load('settings');
-    if (savedSettings) Object.assign(state.settings, savedSettings);
+    if (savedSettings) {
+        if ((savedSettings.settingsVersion || 0) >= SETTINGS_VERSION) {
+            Object.assign(state.settings, savedSettings);
+        } else {
+            // v2 migration: force the four toggles ON, preserve other prefs
+            Object.assign(state.settings, savedSettings, {
+                sound: true,
+                haptic: true,
+                animations: true,
+                liveRates: true,
+                settingsVersion: SETTINGS_VERSION
+            });
+            Storage.save('settings', state.settings);
+        }
+    } else {
+        state.settings.settingsVersion = SETTINGS_VERSION;
+    }
 
     // Apply settings to UI
     document.getElementById('soundToggle').checked = state.settings.sound;
